@@ -1,17 +1,9 @@
-var express = require('express');
+var express = require('./config/express');
 
 var app = express();
 
-
-app.get('/help', function(req, res){
-	res.send('There is no help');
-});
-
-app.use('/', function(req, res){
-	res.redirect('https://goo.gl');
-});
-
-app.listen(3000);
-console.log('Server running on http://localhost:3000');
+app.listen(3031);
 
 module.exports = app;
+
+console.log('Server running at http://localhost:3031/');
