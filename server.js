@@ -1,8 +1,14 @@
 var express = require('express');
+
 var app = express();
 
+
+app.get('/help', function(req, res){
+	res.send('There is no help');
+});
+
 app.use('/', function(req, res){
-	res.send('Hello world');
+	res.redirect('https://goo.gl');
 });
 
 app.listen(3000);
