@@ -2,5 +2,7 @@ var config = require("./config.js"),
     mongoose = require("mongoose");
 
 module.exports = function () {
-    return mongoose.connect(config.db);
+    var db = mongoose.connect(config.db);
+    require("../app/models/user.server.model");
+    return db;
 };
