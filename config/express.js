@@ -37,6 +37,7 @@ module.exports = function () {
 
     // This is the file which does the job of routing home to template
     require("../app/routes/index.server.routes.js")(app);
+    require("../app/routes/user.server.routes.js")(app);
 
     // This will serve static files
     app.use(express.static("./public"));
