@@ -1,4 +1,5 @@
 module.exports = {
     // Development Configuration options
-    sessionSecret: "developmentSessionSecret"
+    sessionSecret: "developmentSessionSecret",
+    db: "mongodb://localhost/mean-book"
 };
