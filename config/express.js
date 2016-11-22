@@ -4,6 +4,7 @@ var config = require("./config"),
     compress = require('compression'),
     bodyParser = require('body-parser'),
     session = require("express-session"),
+    cookieParser = require("cookie-parser"),
     methodOverride = require('method-override');
 
 module.exports = function () {
@@ -22,6 +23,7 @@ module.exports = function () {
     app.use(bodyParser.json());
     app.use(methodOverride());
 
+    app.use(cookieParser());
     app.use(session({
         saveUninitialized: true,
         resave: true,
