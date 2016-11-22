@@ -8,5 +8,5 @@ exports.create = function(req, res, next){
         } else {
             res.json(user);
         }
-    })
+    });
 };
