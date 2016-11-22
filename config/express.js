@@ -3,6 +3,7 @@ var config = require("./config"),
     morgan = require('morgan'),
     compress = require('compression'),
     bodyParser = require('body-parser'),
+    session = require("express-session"),
     methodOverride = require('method-override');
 
 module.exports = function () {
