@@ -21,15 +21,15 @@ exports.list = function (req, res, next) {
     })
 };
 
-exports.read = function(req, res){
+exports.read = function (req, res) {
     res.json(req.user);
 };
 
-exports.userById = function(req, res, next, id){
+exports.userById = function (req, res, next, id) {
     User.findOne({
         _id: id
-    }, function(err, user){
-        if(err){
+    }, function (err, user) {
+        if (err) {
             return next(user);
         } else {
             req.user = user;
@@ -38,9 +38,9 @@ exports.userById = function(req, res, next, id){
     })
 };
 
-exports.update = function(req, res, next){
-    User.findByIdAndUpdate(req.user.id, req.body, function(err, user){
-        if(err){
+exports.update = function (req, res, next) {
+    User.findByIdAndUpdate(req.user.id, req.body, function (err, user) {
+        if (err) {
             return next(user);
         } else {
             res.json(user);
@@ -48,4 +48,12 @@ exports.update = function(req, res, next){
     })
 };
 
-
+exports.delete = function (req, res, next) {
+    req.user.remove(function (err) {
+        if (err) {
+            return next(err);
+        } else {
+            res.json(res.user);
+        }
+    })
+};
