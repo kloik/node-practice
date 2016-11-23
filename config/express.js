@@ -33,8 +33,6 @@ module.exports = function () {
     app.set("views", "./app/views");
     app.set("view engine", "ejs");
 
-    app.set("views", "./app/views");
-
     // This is the file which does the job of routing home to template
     require("../app/routes/index.server.routes.js")(app);
     require("../app/routes/user.server.routes.js")(app);
