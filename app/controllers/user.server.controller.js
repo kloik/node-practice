@@ -12,7 +12,7 @@ exports.create = function (req, res, next) {
 };
 
 exports.list = function (req, res, next) {
-    User.find({}, function (err, users) {
+    User.find({}, "username email", function (err, users) {
         if (err) {
             return next(err);
         } else {
@@ -20,3 +20,32 @@ exports.list = function (req, res, next) {
         }
     })
 };
+
+exports.read = function(req, res){
+    res.json(req.user);
+};
+
+exports.userById = function(req, res, next, id){
+    User.findOne({
+        _id: id
+    }, function(err, user){
+        if(err){
+            return next(user);
+        } else {
+            req.user = user;
+            next();
+        }
+    })
+};
+
+exports.update = function(req, res, next){
+    User.findByIdAndUpdate(req.user.id, req.body, function(err, user){
+        if(err){
+            return next(user);
+        } else {
+            res.json(user);
+        }
+    })
+};
+
+
